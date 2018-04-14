@@ -254,6 +254,13 @@ ORK_CLASS_AVAILABLE
  */
 - (void)prepareStep;
 
+/**
+ VascTrac Internal v2.0
+ 
+ Interfacing Navigation to use with Active Tasks
+ */
+@property (nonatomic, assign) BOOL isNavigationHidden;
+
 @end
 
 NS_ASSUME_NONNULL_END

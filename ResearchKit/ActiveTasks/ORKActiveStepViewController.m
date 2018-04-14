@@ -130,6 +130,12 @@
                                                                                        @"topLayoutGuide": self.topLayoutGuide}]];
     [NSLayoutConstraint activateConstraints:constraints];
     
+    if (_isNavigationHidden) {
+        _activeStepView.continueSkipContainer.continueEnabled = false;
+        _activeStepView.continueSkipContainer.skipEnabled = false;
+        _activeStepView.continueSkipContainer.neverHasContinueButton = true;
+    }
+    
     [self prepareStep];
 }
 

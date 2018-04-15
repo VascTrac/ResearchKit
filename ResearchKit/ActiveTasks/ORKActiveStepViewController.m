@@ -110,13 +110,15 @@
     [super viewDidLoad];
     
     _activeStepView = [[ORKActiveStepView alloc] initWithFrame:self.view.bounds];
-    _activeStepView.translatesAutoresizingMaskIntoConstraints = NO;
-    [_activeStepView setCustomView:_customView];
-    [self updateContinueButtonItem];
-    _activeStepView.headerView.learnMoreButtonItem = self.learnMoreButtonItem;
-    _activeStepView.continueSkipContainer.skipButtonItem = self.skipButtonItem;
-    _activeStepView.continueSkipContainer.continueEnabled = _finished;
-    [self.view addSubview:_activeStepView];
+    if (!useCustomView) {
+        _activeStepView.translatesAutoresizingMaskIntoConstraints = NO;
+        [_activeStepView setCustomView:_customView];
+        [self updateContinueButtonItem];
+        _activeStepView.headerView.learnMoreButtonItem = self.learnMoreButtonItem;
+        _activeStepView.continueSkipContainer.skipButtonItem = self.skipButtonItem;
+        _activeStepView.continueSkipContainer.continueEnabled = _finished;
+        [self.view addSubview:_activeStepView];
+    }
     
     NSMutableArray *constraints = [NSMutableArray new];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[activeStepView]|"

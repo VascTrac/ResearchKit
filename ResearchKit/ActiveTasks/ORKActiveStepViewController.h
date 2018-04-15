@@ -261,6 +261,9 @@ ORK_CLASS_AVAILABLE
  */
 @property (nonatomic, assign) BOOL isNavigationHidden;
 
+
+@property (nonatomic, assign) BOOL useCustomView;
+
 @end
 
 NS_ASSUME_NONNULL_END

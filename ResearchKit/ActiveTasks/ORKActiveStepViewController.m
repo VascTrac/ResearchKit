@@ -118,19 +118,19 @@
         _activeStepView.continueSkipContainer.skipButtonItem = self.skipButtonItem;
         _activeStepView.continueSkipContainer.continueEnabled = _finished;
         [self.view addSubview:_activeStepView];
+        
+        NSMutableArray *constraints = [NSMutableArray new];
+        [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[activeStepView]|"
+                                                                                 options:(NSLayoutFormatOptions)0
+                                                                                 metrics:nil
+                                                                                   views:@{@"activeStepView": _activeStepView}]];
+        [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide][activeStepView]|"
+                                                                                 options:(NSLayoutFormatOptions)0
+                                                                                 metrics:nil
+                                                                                   views:@{@"activeStepView": _activeStepView,
+                                                                                           @"topLayoutGuide": self.topLayoutGuide}]];
+        [NSLayoutConstraint activateConstraints:constraints];
     }
-    
-    NSMutableArray *constraints = [NSMutableArray new];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[activeStepView]|"
-                                                                             options:(NSLayoutFormatOptions)0
-                                                                             metrics:nil
-                                                                               views:@{@"activeStepView": _activeStepView}]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topLayoutGuide][activeStepView]|"
-                                                                             options:(NSLayoutFormatOptions)0
-                                                                             metrics:nil
-                                                                               views:@{@"activeStepView": _activeStepView,
-                                                                                       @"topLayoutGuide": self.topLayoutGuide}]];
-    [NSLayoutConstraint activateConstraints:constraints];
     
     if (_isNavigationHidden) {
         _activeStepView.continueSkipContainer.continueEnabled = false;

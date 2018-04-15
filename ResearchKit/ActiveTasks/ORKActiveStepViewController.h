@@ -261,7 +261,11 @@ ORK_CLASS_AVAILABLE
  */
 @property (nonatomic, assign) BOOL isNavigationHidden;
 
-
+/**
+ VascTrac Internal v2.0
+ 
+ If true, the default RK active task interface will be hidden.
+ */
 @property (nonatomic, assign) BOOL useCustomView;
 
 @end

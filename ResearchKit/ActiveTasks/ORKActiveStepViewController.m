@@ -110,7 +110,7 @@
     [super viewDidLoad];
     
     _activeStepView = [[ORKActiveStepView alloc] initWithFrame:self.view.bounds];
-    if (!useCustomView) {
+    if (!_useCustomView) {
         _activeStepView.translatesAutoresizingMaskIntoConstraints = NO;
         [_activeStepView setCustomView:_customView];
         [self updateContinueButtonItem];

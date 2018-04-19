@@ -228,7 +228,7 @@ static NSString *const _FamilyNameIdentifier = @"family";
         }
     }
     
-    NSString *html = [document mobileHTMLWithTitle:ORKLocalizedString(@"CONSENT_REVIEW_TITLE", nil)
+    NSString *html = [document mobileHTMLWithTitle: self.step.title ? : ORKLocalizedString(@"CONSENT_REVIEW_TITLE", nil)
                                              detail:ORKLocalizedString(@"CONSENT_REVIEW_INSTRUCTION", nil)];
 
     ORKConsentReviewController *reviewViewController = [[ORKConsentReviewController alloc] initWithHTML:html delegate:self];
